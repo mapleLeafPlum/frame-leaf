@@ -1,0 +1,25 @@
+{
+  "job": {
+    "content": {
+      "reader": {
+        "name": "kafka",
+        "parameter": {
+          "topic": "kafka_es_client_error",
+          "groupid": "es2",
+          "bootstrapServers": "k1:9094,k2:9094,k3:9094"
+        },
+        "threads": 6
+      },
+      "writer": {
+        "name": "es",
+        "parameter": {
+          "host": [
+            "es1:9300,es2:9300,es3:9300"
+          ],
+          "index": "client_error_%s",
+          "type": "client_error"
+        }
+      }
+    }
+  }
+}
