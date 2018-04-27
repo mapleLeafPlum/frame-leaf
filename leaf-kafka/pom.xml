@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>leaves</artifactId>
+        <groupId>com.leaf</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.leaf.kafka</groupId>
+    <artifactId>leaf-kafka</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>leaf-kafka</name>
+    <url>http://maven.apache.org</url>
+    <modules>
+        <module>leaf-kafka-producer</module>
+        <module>leaf-kafka-consumer</module>
+    </modules>
+
+</project>
