@@ -22,9 +22,9 @@ public class ConsumerTest {
         Producer producerThread = new Producer(KafkaProperties.TOPIC, isAsync);
         producerThread.start();*/
 
-        for (int i=0;i<6;i++){
-            Consumer consumerThread = new Consumer(KafkaProperties.TOPIC,i+"");
+     /*   for (int i=0;i<6;i++){*/
+            Consumer consumerThread = new Consumer(KafkaProperties.TOPIC,"tset");
             consumerThread.start();
-        }
+       // }
     }
 }

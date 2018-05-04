@@ -9,19 +9,17 @@ import java.util.Map;
 
 public class KeyPatitioner implements Partitioner {
 
-    @Override
+
     public int partition(String topic, Object key, byte[] bytes, Object o1, byte[] bytes1, Cluster cluster) {
         List<PartitionInfo> partitions = cluster.partitionsForTopic(topic);
         int numPartitions = partitions.size();
         return Integer.parseInt(key.toString().split("_")[1])%numPartitions;
     }
 
-    @Override
     public void close() {
 
     }
 
-    @Override
     public void configure(Map<String, ?> map) {
 
     }

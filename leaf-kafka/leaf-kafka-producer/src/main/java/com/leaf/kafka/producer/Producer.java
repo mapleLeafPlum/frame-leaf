@@ -32,7 +32,7 @@ public class Producer extends Thread {
         props.put("client.id", "DemoProducer");
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "com.leaf.kafka.producer.KeyPatitioner");
+        //props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "com.leaf.kafka.producer.KeyPatitioner");
         producer = new KafkaProducer<String, String>(props);
         this.topic = topic;
         this.isAsync = isAsync;

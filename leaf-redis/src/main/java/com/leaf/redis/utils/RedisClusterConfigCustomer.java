@@ -34,7 +34,7 @@ public class RedisClusterConfigCustomer extends RedisClusterConfiguration{
 	public void setRedisClusterNodes(String redisClusterNodes){
 		
 		String hosts[]=redisClusterNodes.split(",");
-		List<RedisNode> nodes=new ArrayList<>();
+		List<RedisNode> nodes=new ArrayList<RedisNode>();
 		for (String host : hosts) {
 			String hostPort[]=host.split(":");
 			RedisNode node=new RedisNode(hostPort[0],Integer.parseInt(hostPort[1]));
