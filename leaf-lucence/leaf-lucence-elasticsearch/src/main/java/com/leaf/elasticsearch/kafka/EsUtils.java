@@ -3,6 +3,7 @@ package com.leaf.elasticsearch.kafka;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 import java.io.File;
@@ -20,20 +21,13 @@ public class EsUtils {
     private static TransportClient client = null;
 
     static {
-        if (client == null) {
+        try {
             client = new PreBuiltTransportClient(Settings.EMPTY);
+            client.addTransportAddress(null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        String root = System.getProperty("user.dir") + "/conf/";
-        String path = SystemConfigUtils.getProperty("kafka.x.plugins.exec.path");
-        Configuration conf = Configuration.from(new File(root + path));
-        List<Object> hosts = conf.getList("job.content.writer.parameter.host");
-        for (Object object : hosts) {
-            try {
-                client.addTransportAddress(null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+
     }
 
     public static void write2Es(String index, String type, List<Map<String, Object>> dataSets) {
